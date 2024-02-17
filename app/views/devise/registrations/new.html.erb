@@ -22,8 +22,9 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'rounded-lg bg-slate-200 text-slate-950 w-full' %>
       </div>
 
-      <div class="actions flex">
+      <div class="actions flex gap-2">
         <%= f.submit "Crear cuenta", class: 'rounded-lg bg-blue-600 font-medium mt-4 px-4 py-2 shadow-2xl cursor-pointer' %>
+        <%= link_to 'Cancelar', root_path, class: 'rounded-lg bg-blue-600 font-medium mt-4 px-4 py-2 shadow-2xl' %>
       </div>
     <% end %>
   </div>
