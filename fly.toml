@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for studio96ls on 2024-02-15T00:06:37-06:00
+# fly.toml app configuration file generated for studio96ls on 2024-02-16T08:35:10-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -8,10 +8,6 @@ primary_region = 'gdl'
 console_command = '/rails/bin/rails console'
 
 [build]
-
-[[mounts]]
-  source = 'data'
-  destination = '/data'
 
 [http_service]
   internal_port = 3000
@@ -44,3 +40,6 @@ console_command = '/rails/bin/rails console'
 [[statics]]
   guest_path = '/rails/public'
   url_prefix = '/'
+[deploy]
+  release_command = "./bin/rails db:prepare"
+
