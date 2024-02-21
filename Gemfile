@@ -71,8 +71,8 @@ end
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
 
-gem "redis", "~> 5.1"
-
 gem "devise", "~> 4.9"
+
+gem "redis", "~> 5.1"
 
 gem "pg", "~> 1.5"
