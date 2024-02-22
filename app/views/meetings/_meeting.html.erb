@@ -1,4 +1,8 @@
 <div id="<%= dom_id meeting %>">
+  <h2 class="my-5 text-center text-2xl font-bold">
+    <%= meeting.service.name %>
+  </h2>
+
   <p class="my-5">
     <strong class="block font-medium mb-1">Inicia:</strong>
     <%= meeting.start_time.strftime("%d/%b/%Y => %l:%M %p") %>
@@ -7,11 +11,6 @@
   <p class="my-5">
     <strong class="block font-medium mb-1">Termina:</strong>
     <%= meeting.end_time.strftime("%d/%b/%Y => %l:%M %p") %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Servicio:</strong>
-    <%= meeting.service.name %>
   </p>
 
   <p class="my-5">
