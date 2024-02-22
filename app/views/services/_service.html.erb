@@ -1,27 +1,27 @@
 <div id="<%= dom_id service %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+    <strong class="block font-medium mb-1">Nombre:</strong>
     <%= service.name %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
+    <strong class="block font-medium mb-1">Descripcion:</strong>
     <%= service.description %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Price:</strong>
+    <strong class="block font-medium mb-1">Precio:</strong>
     <%= service.price %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Commission:</strong>
+    <strong class="block font-medium mb-1">Comision:</strong>
     <%= service.commission %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this service", service, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
-    <%= link_to "Edit this service", edit_service_path(service), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 inline-block font-medium" %>
+    <%= link_to "Ver servicio", service, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
+    <%= link_to "Editar servicio", edit_service_path(service), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
