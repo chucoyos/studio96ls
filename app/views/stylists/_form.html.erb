@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :name %>
+    <%= form.label 'Nombre' %>
     <%= form.text_field :name, class: "text-slate-950 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :phone %>
+    <%= form.label 'Tel' %>
     <%= form.text_field :phone, class: "text-slate-950 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit 'Enviar', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>

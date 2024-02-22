@@ -1,0 +1,42 @@
+<%= form_with(model: meeting, class: "contents") do |form| %>
+  <% if meeting.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+        <% meeting.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :start_time %>
+    <%= form.datetime_field :start_time, class: "text-slate-950 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :end_time %>
+    <%= form.datetime_field :end_time, class: "text-slate-950 block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :service_id %>
+    <%= form.select :service_id, Service.all.collect { |service| [service.name, service.id] }, {}, { class: 'bg-blue-600 rounded-lg w-full' } %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :client_id %>
+    <%= form.select :client_id, Client.all.collect { |client| [client.name, client.id] }, {}, { class: 'bg-blue-600 rounded-lg w-full' } %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :stylist_id %>
+    <%= form.select :stylist_id, Stylist.all.collect { |stylist| [stylist.name, stylist.id] }, {}, { class: 'bg-blue-600 rounded-lg w-full' } %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit 'Enviar', class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

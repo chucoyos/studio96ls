@@ -1,0 +1,32 @@
+<div id="<%= dom_id meeting %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Inicia:</strong>
+    <%= meeting.start_time.strftime("%d/%b/%Y => %l:%M %p") %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Termina:</strong>
+    <%= meeting.end_time.strftime("%d/%b/%Y => %l:%M %p") %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Servicio:</strong>
+    <%= meeting.service.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Cliente:</strong>
+    <%= meeting.client.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Estilista:</strong>
+    <%= meeting.stylist.name %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Ver cita", meeting, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
+    <%= link_to "Editar cita", edit_meeting_path(meeting), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

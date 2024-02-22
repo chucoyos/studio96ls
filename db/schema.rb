@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_22_011813) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_22_051941) do
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "phone"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "service_id", null: false
+    t.integer "client_id", null: false
+    t.integer "stylist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_meetings_on_client_id"
+    t.index ["service_id"], name: "index_meetings_on_service_id"
+    t.index ["stylist_id"], name: "index_meetings_on_stylist_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -47,4 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_011813) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meetings", "clients"
+  add_foreign_key "meetings", "services"
+  add_foreign_key "meetings", "stylists"
 end
