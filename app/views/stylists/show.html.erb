@@ -6,10 +6,10 @@
 
     <%= render @stylist %>
 
-    <%= link_to "Editar profesional", edit_stylist_path(@stylist), class: "mt-2 rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
-    <div class="inline-block mt-2">
-      <%= button_to "Eliminar profesional", stylist_path(@stylist), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-blue-600 font-medium" %>
+    <div class="flex gap-2 mt-2">
+      <%= link_to "Editar", edit_stylist_path(@stylist), class: "rounded-lg py-3 px-5 bg-blue-600 font-medium" %>
+      <%= button_to "Eliminar", stylist_path(@stylist), method: :delete, class: "rounded-lg py-3 px-5 bg-blue-600 font-medium" %>
+      <%= link_to "Regresar", stylists_path, class: "bg-blue-600 rounded-lg py-3 px-5 bg-blue-600 font-medium" %>
     </div>
-    <%= link_to "Regresar", stylists_path, class: "bg-blue-600 ml-2 rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
   </div>
 </div>
