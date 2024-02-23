@@ -6,7 +6,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Phone:</strong>
-    <%= client.phone %>
+    <%= number_to_phone(client.phone, area_code: true) %>
   </p>
 
   <p class="my-5">
