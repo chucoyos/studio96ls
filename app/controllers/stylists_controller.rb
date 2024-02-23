@@ -1,5 +1,6 @@
 class StylistsController < ApplicationController
   before_action :set_stylist, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /stylists or /stylists.json
   def index

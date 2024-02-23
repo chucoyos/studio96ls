@@ -32,7 +32,7 @@
   </div>
 
   <div class="my-5">
-    <%= form.label 'Profesional' %>
+    <%= form.label 'Estilista' %>
     <%= form.select :stylist_id, Stylist.all.collect { |stylist| [stylist.name, stylist.id] }, {}, { class: 'bg-blue-600 rounded-lg w-full' } %>
   </div>
 

@@ -1,4 +1,4 @@
-<div id="<%= dom_id client %>" class=''>
+<div id="<%= dom_id client %>" class='bg-slate-800 rounded-xl py-4 px-2 my-4'>
   <p class="my-5">
     <strong class="block font-medium mb-1">Nombre:</strong>
     <%= client.name %>
@@ -17,6 +17,5 @@
   <% if action_name != "show" %>
     <%= link_to "Ver cliente", client, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
     <%= link_to "Editar cliente", edit_client_path(client), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 inline-block font-medium" %>
-    <hr class="mt-6">
   <% end %>
 </div>
