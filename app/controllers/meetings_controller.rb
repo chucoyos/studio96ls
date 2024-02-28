@@ -27,7 +27,7 @@ class MeetingsController < ApplicationController
 
     respond_to do |format|
       if @meeting.save
-        format.html { redirect_to meeting_url(@meeting), notice: "Servicio agregado." }
+        format.html { redirect_to meeting_url(@meeting), notice: "Cita agregada." }
         format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class MeetingsController < ApplicationController
   def update
     respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to meeting_url(@meeting), notice: "Servicio actualizado." }
+        format.html { redirect_to meeting_url(@meeting), notice: "Cita actualizada." }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class MeetingsController < ApplicationController
     @meeting.destroy!
 
     respond_to do |format|
-      format.html { redirect_to meetings_url, notice: "Se elimino el servicio." }
+      format.html { redirect_to meetings_url, notice: "Cita eliminada." }
       format.json { head :no_content }
     end
   end

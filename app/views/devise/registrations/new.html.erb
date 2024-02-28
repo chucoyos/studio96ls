@@ -1,6 +1,6 @@
 <div class='flex flex-col items-center mx-auto w-full rounded-lg p-2 lg:w-1/2'>
-  <h2 class='text-center text-2xl'>Crear cuenta</h2>
-  <div class='w-full flex flex-col px-8 py-6 rounded-lg shadow-2xl'>
+  <h2 class='text-center text-2xl text-green-100'>Crear cuenta</h2>
+  <div class='w-full flex flex-col px-8 py-6 rounded-lg bg-gray-200'>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -28,6 +28,7 @@
       </div>
     <% end %>
   </div>
-  
-  <%= render "devise/shared/links" %>
+  <div class='bg-gray-100 mt-4 py-4 rounded-xl'>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

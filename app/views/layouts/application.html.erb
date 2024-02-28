@@ -11,10 +11,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class='mb-16 text-green-950 bg-gray-200'>
+  <body class='mb-16 bg-gradient-to-r from-slate-950 to-slate-700'>
     <main class="mx-auto mt-16 px-5 flex flex-col ">
-       <%= notice %>
-       <%= alert %>
+      <% if devise_controller? %>
+        <div>
+          <p class="text-center text-green-950 bg-green-200 rounded-lg">
+           <%= notice %>
+          </p>
+          <p class="text-center text-red-950 bg-red-200 rounded-lg">
+            <%= alert %>
+          </p>
+        </div>
+      <% end %>
       <div>
         <%= yield %>
       </div>
