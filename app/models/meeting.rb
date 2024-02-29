@@ -6,16 +6,15 @@ class Meeting < ApplicationRecord
   validates :end_time, presence: true
   validate :validate_meeting_time_range
   validate :validate_meeting_overlap
-  validate :validate_meeting_date
+  validate :validate_meeting_date_time
 
   private
-
-  def validate_meeting_date
-    if start_time.present? && start_time < Date.current
-      errors.add(:start_time, "La fecha de inicio no puede ser anterior a la fecha actual")
-    end
-  end
   
+  def validate_meeting_date_time
+      if start_time.present? && start_time < Time.current - 6.hours
+        errors.add(:start_time, "La cita no puede ser anterior a la hora actual")
+      end
+  end
 
   def validate_meeting_time_range
     if start_time.present? && end_time.present? && start_time >= end_time
