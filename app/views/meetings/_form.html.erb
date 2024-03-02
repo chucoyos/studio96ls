@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div class="my-5 shadow-2xl bg-gray-100 rounded-lg p-4">
-    <%= form.label 'Inicia' %>
-    <%= form.datetime_field :start_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="my-5 border rounded-lg p-4">
+    <%= form.label 'Inicia', class: 'text-slate-100' %>
+    <%= form.datetime_field :start_time, class: "block rounded-lg outline-none px-3 py-2 mt-2 w-full bg-slate-500" %>
   </div>
 
-  <div class="my-5 shadow-2xl bg-gray-100 rounded-lg p-4">
-    <%= form.label 'Termina' %>
-    <%= form.datetime_field :end_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="my-5 border rounded-lg p-4">
+    <%= form.label 'Termina', class: 'text-slate-100' %>
+    <%= form.datetime_field :end_time, class: "block rounded-lg outline-none px-3 py-2 mt-2 w-full bg-slate-500" %>
   </div>
 
-  <div class="my-5 shadow-2xl bg-gray-100 rounded-lg p-4">
-    <%= form.label 'Servicio' %>
-    <%= form.select :service_id, Service.all.collect { |service| [service.name, service.id] }, {}, { class: 'rounded-lg w-full' } %>
+  <div class="my-5 border rounded-lg p-4">
+    <%= form.label 'Servicio', class: 'text-slate-100' %>
+    <%= form.select :service_id, Service.all.collect { |service| [service.name, service.id] }, {}, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
   </div>
 
-  <div class="my-5 shadow-2xl bg-gray-100 rounded-lg p-4">
-    <%= form.label 'Cliente' %>
-    <%= form.select :client_id, Client.all.collect { |client| [client.name, client.id] }, {}, { class: 'rounded-lg w-full' } %>
+  <div class="my-5 border rounded-lg p-4">
+    <%= form.label 'Cliente', class: 'text-slate-100' %>
+    <%= form.select :client_id, Client.all.collect { |client| [client.name, client.id] }, {}, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
   </div>
 
-  <div class="my-5 shadow-2xl bg-gray-100 rounded-lg p-4">
-    <%= form.label 'Estilista' %>
-    <%= form.select :stylist_id, Stylist.all.collect { |stylist| [stylist.name, stylist.id] }, {}, { class: 'rounded-lg w-full' } %>
+  <div class="my-5 border rounded-lg p-4">
+    <%= form.label 'Estilista', class: 'text-slate-100' %>
+    <%= form.select :stylist_id, Stylist.all.collect { |stylist| [stylist.name, stylist.id] }, {}, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
   </div>
 
   <div class="inline">
