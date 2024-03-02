@@ -76,3 +76,5 @@ gem "devise", "~> 4.9"
 gem "redis", "~> 5.1"
 
 gem "pg", "~> 1.5"
+
+gem "heroicon"
