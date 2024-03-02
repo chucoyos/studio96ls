@@ -4,4 +4,5 @@ class Service < ApplicationRecord
   has_many :meetings
   has_many :clients, through: :meetings
   has_many :stylists, through: :meetings
+  default_scope { order(name: :asc) }
 end

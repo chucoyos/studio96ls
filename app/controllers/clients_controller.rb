@@ -4,9 +4,8 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    def index
-      @clients = Client.order(:name)
-    end
+    # @clients = Client.order(:name)
+    @clients = Client.all
   end
 
   # GET /clients/1 or /clients/1.json

@@ -7,7 +7,6 @@ class Meeting < ApplicationRecord
   validate :validate_meeting_time_range
   validate :validate_meeting_overlap
   validate :validate_meeting_date_time
-
   private
   
   def validate_meeting_date_time
