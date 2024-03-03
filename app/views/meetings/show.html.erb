@@ -3,9 +3,10 @@
     <% if notice.present? %>
       <p class="py-2 px-3 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
-
-    <p class='text-center'>Cita</p>
-
+    <div class='flex justify-between px-2 w-1/2 ml-6'>
+      <p class='font-bold'><%= link_to '<-', meetings_path %></p>
+      <p class=''>Cita</p>
+    </div>
     <%= render @meeting %>
 
     <%= link_to "Editar cita", edit_meeting_path(@meeting), class: "mt-2 rounded-lg py-3 px-5 bg-gradient-to-b from-green-700 to-green-950 text-green-100 inline-block font-medium" %>

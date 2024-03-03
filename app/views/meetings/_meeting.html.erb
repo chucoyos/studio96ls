@@ -1,29 +1,36 @@
 <div id="<%= dom_id meeting %>" class='rounded-xl bg-slate-700 shadow-2xl py-4 px-4 my-4'>
-  <div class='rounded-xl py-4 shadow-2xl bg-gradient-to-b from-slate-600 to-slate-950 shadow-2xl text-slate-100'>
-    <p class="text-center text-2xl font-bold">
-      <%= meeting.service.name %>
-    </p>
-    <p class="text-center text-xl font-bold">
-      <%= meeting.client.name %>
-    </p>
+  <div class='rounded-xl p-4 shadow-2xl bg-gradient-to-b from-slate-600 to-slate-950 shadow-2xl text-slate-100'>
+    <div class="text-center text-xl font-bold">
+      <p><%= meeting.service.name %></p>
+    </div>
+    <div class="flex flex-col gap-2 my-4 items-center">
+        <span class='rounded-full outline outline-blue-600 outline-offset-4 outline-2 p-2'><%= heroicon 'user', variant: :outline, options: {class: 'w-6 h-6 text-slate-100'}%></span>
+        <p class='font-bold'><%= meeting.client.name %></p>
+    </div>
+
+    <div class="flex gap-2 items-center justify-center my-4">
+        <span class='bg-red-800 rounded-lg p-2'><%= heroicon 'calendar', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%></span>
+        <span class='font-bold'><%= meeting.start_time.strftime("%A") %></span>
+        <%= meeting.start_time.strftime("%d/%b/%Y") %>
+    </div>
+
+    <div class="flex gap-4 my-4 items-center">
+        <span class='rounded-full bg-green-800 p-2'><%= heroicon 'arrow-up', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%></span>
+      <p class='font-bold'><%= meeting.start_time.strftime("%l:%M %p") %></p>
+    </div>
+    <hr/>
+    <div class="flex gap-4 my-4 items-center">
+        <span class='bg-red-800 rounded-full p-2'><%= heroicon 'arrow-down', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%></span>
+        <p class='font-bold'><%= meeting.end_time.strftime("%l:%M %p") %></p>
+    </div>
+    <hr/>
+    <div class="flex gap-4 my-4 items-center">
+      <span class='bg-fuchsia-600 rounded-full p-2'><%= heroicon 'scissors', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%></span>
+      <%= meeting.stylist.name %>
+    </div>
   </div>
 
-  <p class="my-5 rounded-xl p-4 shadow-2xl bg-gradient-to-b from-slate-600 to-slate-950 shadow-2xl text-slate-100">
-    <strong class="block font-medium mb-1">Inicia:</strong>
-    <%= meeting.start_time.strftime("%d/%b/%Y - %l:%M %p") %>
-  </p>
-
-  <p class="my-5 rounded-xl p-4 shadow-2xl bg-gradient-to-b from-slate-600 to-slate-950 shadow-2xl text-slate-100">
-    <strong class="block font-medium mb-1">Termina:</strong>
-    <%= meeting.end_time.strftime("%d/%b/%Y - %l:%M %p") %>
-  </p>
-
-  <p class="my-5 rounded-xl p-4 shadow-2xl bg-gradient-to-b from-slate-600 to-slate-950 shadow-2xl text-slate-100">
-    <strong class="block font-medium mb-1">Estilista:</strong>
-    <%= meeting.stylist.name %>
-  </p>
-
-  <% if action_name != "show" %>
+    <% if action_name != "show" %>
     <%= link_to "Ver cita", meeting, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
     <%= link_to "Editar cita", edit_meeting_path(meeting), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 inline-block font-medium" %>
   <% end %>
