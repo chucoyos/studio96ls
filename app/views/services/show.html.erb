@@ -3,13 +3,16 @@
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
-    <p class='text-center mt-4'>Servicio</p>
+    <div class='flex justify-between w-1/2 ml-4 mt-4'>
+      <p class='font-bold'><%= link_to '<-', services_path %></p>
+      <p class=''>Servicios</p>
+    </div>
     <%= render @service %>
 
     <%= link_to "Editar", edit_service_path(@service), class: "mt-2 rounded-lg py-3 px-5 bg-gradient-to-b from-green-700 to-green-950 text-green-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to "Eliminar", service_path(@service), method: :delete, data: {turbo_confirm: 'Seguro?'}, class: "mt-2 border bg-gradient-to-b from-red-700 to-red-950 text-red-100 rounded-lg py-3 px-5 font-medium" %>
     </div>
-    <%= link_to "<- Regresar", services_path, class: "mt-2 bg-gradient-to-b from-slate-100 to-slate-400 text-slate-950 rounded-lg py-3 px-5 inline-block font-medium" %>
+    <%= link_to "<- Regresar", services_path, class: "mt-4 bg-gradient-to-b from-slate-100 to-slate-400 text-slate-950 rounded-lg py-3 px-5 inline-block font-medium" %>
   </div>
 </div>

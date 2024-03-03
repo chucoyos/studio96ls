@@ -1,13 +1,13 @@
-<div id="<%= dom_id stylist %>" class='rounded-xl py-4 bg-slate-800 px-2 my-4'>
-  <p class="p-4">
-    <strong class="block font-medium mb-1">Nombre:</strong>
-    <%= stylist.name %>
-  </p>
+<div id="<%= dom_id stylist %>" class='rounded-xl py-4 bg-slate-700 px-2 my-4'>
+  <div class='flex flex-col items-center gap-2'>
+    <%= heroicon 'user-circle', variant: :outline, options: {class: 'w-16 h-16'}%>
+    <p class='text-lg font-bold'><%= stylist.name %></p>
+  </div>
 
-  <p class="p-4">
-    <strong class="block font-medium mb-1">Tel:</strong>
-    <%= stylist.phone %>
-  </p>
+    <div class='flex items-center gap-4 bg-slate-800 rounded-xl px-4 py-2'>
+      <span class='bg-green-800 rounded-full p-2'><%= heroicon 'phone', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%></span>
+      <p class=""><%= number_to_phone(stylist.phone, area_code: true) %></p>
+    </div>
 
   <% if action_name != "show" %>
     <%= link_to "Ver estilista", stylist, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>

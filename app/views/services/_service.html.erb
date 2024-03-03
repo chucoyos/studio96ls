@@ -1,20 +1,20 @@
 <div id="<%= dom_id service %>" class='rounded-xl py-4 px-2 my-4'>
-  <div class='flex flex-col bg-slate-800 rounded-lg px-4 py-4 shadow-xl'>
+  <div class='flex flex-col bg-gradient-to-b from-slate-700 to-slate-950 rounded-lg px-4 py-4 shadow-xl'>
     <p class="">
       <strong class="block font-medium">Nombre:</strong>
       <%= service.name %>
     </p>
-
+    <hr/>
     <p class="">
       <strong class="block font-medium">Descripcion:</strong>
       <%= service.description %>
     </p>
-
+    <hr/>
     <p class="">
       <strong class="block font-medium">Precio:</strong>
       $ <%= service.price %>
     </p>
-
+    <hr/>
     <p class="">
       <strong class="block font-medium">Comision:</strong>
       $ <%= service.commission %>
