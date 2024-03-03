@@ -8,7 +8,7 @@
         <p class='font-bold'><%= meeting.client.name %></p>
     </div>
 
-    <div class="flex gap-2 items-center justify-center my-4">
+    <div class="flex gap-2 items-center justify-center my-4 border rounded-xl p-2">
         <span class='bg-red-800 rounded-lg p-2'><%= heroicon 'calendar', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%></span>
         <span class='font-bold'><%= meeting.start_time.strftime("%A") %></span>
         <%= meeting.start_time.strftime("%d/%b/%Y") %>
