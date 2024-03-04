@@ -24,7 +24,7 @@ class Meeting < ApplicationRecord
   end
   
   def validate_meeting_date_time
-    if start_time.present? && start_time < Time.current - 6.hours
+    if start_time.present? && start_time < Time.current
       errors.add(:start_time, "La cita no puede ser anterior a la hora actual")
     end
   end
