@@ -39,6 +39,8 @@ class MeetingsController < ApplicationController
 
   # PATCH/PUT /meetings/1 or /meetings/1.json
   def update
+    @meeting.end_time = @meeting.start_time + @meeting.service.duration.hours
+
     respond_to do |format|
       if @meeting.update(meeting_params)
         format.html { redirect_to meeting_url(@meeting), notice: "Cita actualizada." }
