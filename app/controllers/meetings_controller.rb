@@ -24,6 +24,7 @@ class MeetingsController < ApplicationController
   # POST /meetings or /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    @meeting.end_time = @meeting.start_time + @meeting.service.duration.hours
 
     respond_to do |format|
       if @meeting.save
