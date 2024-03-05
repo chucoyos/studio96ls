@@ -3,6 +3,16 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
+  <%= week_calendar(events: @meetings) do |date, meetings| %>
+  <%= date.day %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= meeting.service.name %>
+    </div>
+    <% end %>
+  <% end %>
+
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl text-slate-100">Citas</h1>
     <%= link_to "Agendar", new_meeting_path, class: "rounded-lg bg-gradient-to-b from-green-700 to-green-950 text-green-100 shadow-2xl py-3 px-5 block font-medium" %>
@@ -54,4 +64,5 @@
       <% end %>
     <% end %>
   </div>
+  
 </div>

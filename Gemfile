@@ -78,3 +78,5 @@ gem "redis", "~> 5.1"
 gem "pg", "~> 1.5"
 
 gem "heroicon"
+
+gem "simple_calendar", "~> 3.0"

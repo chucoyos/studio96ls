@@ -1,0 +1,21 @@
+<div class="flex flex-col gap-2 mb-16">
+    <div class="font-bold">
+      <%= t('simple_calendar.week', default: 'Week') %>
+      <%= calendar.week_number %>
+    </div>
+      <% if calendar.number_of_weeks > 1 %>
+        - <%= calendar.end_week %>
+      <% end %>
+
+    <nav class='flex justify-between gap-2 font-bold'>
+      <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
+      <%= link_to t('simple_calendar.today', default: 'Hoy'), calendar.url_for_today_view %>
+      <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
+    </nav>
+     
+     <div class='flex justify-between'>
+      <% date_range.slice(0, 7).each do |day| %>
+       <div><%= t('date.abbr_day_names')[day.wday] %></div>
+      <% end %>
+     </div>
+</div>
