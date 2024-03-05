@@ -7,8 +7,8 @@
   <%= date.day %>
 
   <% meetings.each do |meeting| %>
-    <div>
-      <%= meeting.service.name %>
+    <div class='rounded-xl my-1 border px-2 text-sm'>
+        <%=link_to meeting.client.name.truncate(6), meeting, class: "text-green-700" %>
     </div>
     <% end %>
   <% end %>
