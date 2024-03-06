@@ -3,66 +3,45 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <%= week_calendar(events: @meetings) do |date, meetings| %>
-  <%= date.day %>
-
-  <% meetings.each do |meeting| %>
-    <div class='rounded-xl my-1 border px-2 text-sm'>
-        <%=link_to meeting.client.name.truncate(6), meeting, class: "text-green-700" %>
-    </div>
-    <% end %>
-  <% end %>
-
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center mb-4">
     <h1 class="font-bold text-4xl text-slate-100">Citas</h1>
     <%= link_to "Agendar", new_meeting_path, class: "rounded-lg bg-gradient-to-b from-green-700 to-green-950 text-green-100 shadow-2xl py-3 px-5 block font-medium" %>
   </div>
 
-  <div id="meetings" class="min-w-full text-slate-100 bg-slate-600 rounded-xl py-1 px-2 my-4">
-    <% @meetings.each do |meeting| %>
-      <%= link_to meeting do %>
-        
-          <div class="flex flex-col gap-2 my-6 py-4 px-4 bg-slate-800 rounded-xl">
+  <%= week_calendar(events: @meetings) do |date, meetings| %>
+    <%= date.day %>
 
-            <div class='flex justify-between bg-gradient-to-b from-slate-600 to-slate-700 p-3 rounded-xl'>
-              <p class=''>
-                <strong class='bg-green-700 px-2 rounded-lg text-green-100'><%= meeting.start_time.strftime("%a") %></strong>
-                <%= meeting.start_time.strftime("%d %b") %>
-              </p>
-              <p class='border ring-4 ring-green-700 rounded-xl px-2'>
-                 <%= meeting.service.name %>
-              </p>
+  <% meetings.each do |meeting| %>
+    <div class='w-full'>
+        <%=link_to meeting do %>
+          <div class='flex flex-col p-2 rounded-xl my-2 bg-green-900 shadow-2xl'>
+            <div class='flex items-center gap-2 justify-center font-bold'>
+              <span>
+                <%= heroicon 'calendar', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%>
+              </span>
+              <%= meeting.start_time.strftime("%l:%M %P") %> a <%= meeting.end_time.strftime("%l:%M %P") %>
             </div>
 
-            <div class='flex justify-center gap-2 mx-auto my-2 text-xl font-bold border border-slate-100 rounded-xl px-3 py-2'>
-              <div class='bg-green-700 text-green-100 px-2 rounded-lg flex items-center'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-              </div>
-              <div class='ml-2'><%= meeting.start_time.strftime("%l:%M %P - ") %></div>
-              <div class=''><%= meeting.end_time.strftime("%l:%M %P") %></div>
+            <div class='flex items-center gap-2'>
+              <span>
+                <%= heroicon 'user', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%>
+              </span>
+              <%= meeting.client.name %>
             </div>
 
-            <div class=' rounded-xl p-3 bg-green-900'>
-              <div class='flex gap-2'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-                <%= meeting.client.name %>
-              </div>
-              <div class='flex gap-2'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.48-.044l.803.215-7.794 4.5m-2.882-1.664A4.33 4.33 0 0 0 10.607 12m3.736 0 7.794 4.5-.802.215a4.5 4.5 0 0 1-2.48-.043l-5.326-1.629a4.324 4.324 0 0 1-2.068-1.379M14.343 12l-2.882 1.664" />
-                </svg>
-                <%= meeting.stylist.name %>
-              </div>
+            <div class='flex items-center gap-2'>
+              <span>
+                <%= heroicon 'sparkles', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%>
+              </span>
+              <%= meeting.service.name %>
             </div>
-
           </div>
 
-      <% end %>
+        <% end %>
+    </div>
     <% end %>
-  </div>
+  <% end %>
+
+  
   
 </div>

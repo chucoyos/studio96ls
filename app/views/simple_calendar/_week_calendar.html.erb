@@ -1,43 +1,32 @@
 <div class="flex flex-col gap-2 mb-16">
-
-    <div class="font-bold">
-      <%= t('simple_calendar.week', default: 'Week') %>
-      <%= calendar.week_number %>
-    </div>
-      <% if calendar.number_of_weeks > 1 %>
-        - <%= calendar.end_week %>
-      <% end %>
-    
-      <nav class='flex justify-between gap-2 font-bold'>
-        <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
-        <%= link_to t('simple_calendar.today', default: 'Hoy'), calendar.url_for_today_view %>
-        <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
-      </nav>
-
-    <div class='flex flex-col'>
-      
-
-      <div class='flex justify-between'>
-        <% date_range.slice(0, 7).each do |day| %>
-         <div>
-            <%= t('date.abbr_day_names')[day.wday] %>
-          </div>
-        <% end %>
-      </div>
+  <div class="font-bold mx-auto text-xl">
+    <%= month_name = t('date.month_names')[calendar.start_date.month] %>
+    <%= t('simple_calendar.week', default: 'Week') %>
+    <%= calendar.week_number %>
+  </div>
+    <% if calendar.number_of_weeks > 1 %>
+      - <%= calendar.end_week %>
+    <% end %>
+  
+    <nav class='flex justify-between gap-2 font-bold'>
+      <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
+      <%= link_to t('simple_calendar.today', default: 'Hoy'), calendar.url_for_today_view %>
+      <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
+    </nav>
+  <div class='flex flex-col rounded-xl p-4 bg-slate-800 mt-6'>
+    <div class='flex flex-col justify-between'>
       <% date_range.each_slice(7) do |week| %>
-        <div class='flex justify-between'>
+        <div class='flex flex-col'>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <div class='flex flex-col items-center'>
+            <div class='flex flex-col items-start min-h-16'>
+              <%= t('date.abbr_day_names')[day.wday] %>
+              <%= content_tag :td, class: calendar.td_classes_for(day) do %>
                 <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
-
-
     </div>
-
-      
+  </div>
 </div>
