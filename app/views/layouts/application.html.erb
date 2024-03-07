@@ -12,21 +12,27 @@
   </head>
 
   <body class='mb-16 bg-gradient-to-r from-slate-950 to-slate-700 text-slate-100'>
-    <main class="mx-auto mt-16 px-5 flex flex-col ">
-      <% if devise_controller? %>
-        <div>
-          <p class="text-center text-green-950 bg-green-200 rounded-lg">
-           <%= notice %>
-          </p>
-          <p class="text-center text-red-950 bg-red-200 rounded-lg">
+  <main class="mx-auto mt-16 px-5 flex flex-col">
+    <% if devise_controller? %>
+      <div class="flex justify-center mb-8">
+        <% if notice.present? %>
+          <div class="flex items-center justify-center px-4 py-2 mr-4 text-sm font-medium text-green-900 bg-green-200 rounded-lg shadow-lg">
+            <%= notice %>
+          </div>
+        <% end %>
+
+        <% if alert.present? %>
+          <div class="flex items-center justify-center px-4 py-2 text-sm font-medium text-red-900 bg-red-200 rounded-lg shadow-lg">
             <%= alert %>
-          </p>
-        </div>
-      <% end %>
-      <div>
-        <%= yield %>
+          </div>
+        <% end %>
       </div>
-    </main>
-    <%= render 'layouts/nav' %>
-  </body>
+    <% end %>
+    <div>
+      <%= yield %>
+    </div>
+  </main>
+  <%= render 'layouts/nav' %>
+</body>
+
 </html>

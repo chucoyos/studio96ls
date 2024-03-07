@@ -1,26 +1,26 @@
 <div class='flex flex-col rounded-lg lg:w-1/2 mx-auto'>
-  <h2 class='text-center text-2xl text-green-100'>Iniciar Sesion</h2>
-  <div class='w-full flex flex-col mb-4 px-8 py-6 rounded-lg bg-gradient-to-b from-stone-100 to-stone-800'>
+  <h2 class='text-center text-2xl text-green-100 mb-4'>Iniciar Sesion</h2>
+  <div class='w-full flex flex-col mb-4 px-8 py-6 rounded-lg bg-gradient-to-b from-slate-500 to-stone-800'>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'rounded-lg bg-slate-200 text-slate-950 w-full' %>
+      <div class="mb-4">
+        <%= f.label :email, class: 'text-slate-100' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'rounded-lg bg-slate-200 text-slate-950 w-full py-2 px-3 mt-2' %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: 'rounded-lg bg-slate-200 text-slate-950 w-full' %>
+      <div class="mb-4">
+        <%= f.label :password, class: 'text-slate-100' %>
+        <%= f.password_field :password, autocomplete: "current-password", class: 'rounded-lg bg-slate-200 text-slate-950 w-full py-2 px-3 mt-2' %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+        <div class="mb-4 flex items-center">
+          <%= f.check_box :remember_me, class: 'h-4 w-4 text-green-600 rounded-sm border-gray-300 focus:ring-green-500' %>
+          <%= f.label :remember_me, class: 'ml-2 text-slate-100' %>
         </div>
       <% end %>
 
-      <div class="actions mb-4">
-        <%= f.submit "Iniciar Sesion", class: 'rounded-lg bg-gradient-to-b from-green-700 to-green-950 text-green-100 font-medium mt-4 px-4 py-2 shadow-2xl' %>
+      <div class="flex justify-center">
+        <%= f.submit "Iniciar Sesion", class: 'rounded-lg bg-gradient-to-b from-green-700 to-green-950 text-green-100 font-medium px-4 py-2 shadow-2xl hover:opacity-90' %>
       </div>
     <% end %>
   </div>
