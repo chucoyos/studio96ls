@@ -1,27 +1,32 @@
 <div class="w-full mb-16 lg:w-1/2 mx-auto">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <div class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+      <%= notice %>
+    </div>
   <% end %>
 
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center mb-8">
     <h1 class="font-bold text-4xl text-slate-100">Servicios</h1>
-    <%= link_to "Nuevo servicio", new_service_path, class: "rounded-lg py-3 px-5 bg-gradient-to-b from-green-700 to-green-950 text-green-100 block font-medium" %>
+    <%= link_to "Nuevo servicio", new_service_path, class: "rounded-lg py-3 px-6 bg-gradient-to-b from-green-700 to-green-950 text-white block font-medium shadow-md hover:shadow-lg transition duration-300" %>
   </div>
 
-  <div id="clients" class="min-w-full text-slate-100 bg-slate-600 rounded-xl mt-4 px-2">
+  <div id="services" class="grid gap-4">
     <% @services.each do |service| %>
-      <%= link_to service do %>
-          <div class='py-2 px-2'>
-            <div class='flex gap-4 items-center'>
-              <span class='bg-green-800 rounded-full p-2'><%= heroicon 'sparkles', variant: :outline, options: {class: 'w-4 h-4 text-white'}%></span>
-              <span class=''>
-                <%= service.name %>
-              </span>
-              <span class='ml-auto'><%= heroicon 'chevron-right', variant: :outline, options: {class: 'w-4 h-4 text-white'}%></span>
-            </div>
+      <%= link_to service, class: "block bg-slate-700 rounded-lg p-4 text-slate-100 hover:bg-slate-800 transition duration-300" do %>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <span class="bg-green-800 rounded-full p-2">
+              <%= heroicon 'sparkles', variant: :outline, options: { class: 'w-8 h-8 text-white' } %>
+            </span>
+            <p class="font-bold text-lg"><%= service.name %></p>
           </div>
-          <hr/>
+          <span class="p-2">
+            <%= heroicon 'chevron-right', variant: :outline, options: { class: 'w-8 h-8 text-white' } %>
+          </span>
+        </div>
       <% end %>
     <% end %>
   </div>
 </div>
+
+
