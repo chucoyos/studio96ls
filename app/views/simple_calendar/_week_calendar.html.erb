@@ -9,9 +9,9 @@
     <% end %>
   
     <nav class='flex justify-between gap-2 font-bold'>
-      <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
-      <%= link_to t('simple_calendar.today', default: 'Hoy'), calendar.url_for_today_view %>
-      <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
+      <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view, class: 'rounded-lg bg-gradient-to-b from-green-700 to-green-950 text-green-100 shadow-2xl py-3 px-5 block font-medium' %>
+      <%= link_to t('simple_calendar.today', default: 'Hoy'), calendar.url_for_today_view, class: 'rounded-lg bg-gradient-to-b from-green-700 to-green-950 text-green-100 shadow-2xl py-3 px-5 block font-medium' %>
+      <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view, class: 'rounded-lg bg-gradient-to-b from-green-700 to-green-950 text-green-100 shadow-2xl py-3 px-5 block font-medium' %>
     </nav>
   <div class='flex flex-col rounded-xl p-4 bg-slate-800 mt-6'>
   <div class='flex flex-col justify-between'>
