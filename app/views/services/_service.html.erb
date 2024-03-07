@@ -1,33 +1,30 @@
-<div id="<%= dom_id service %>" class='rounded-xl py-4 px-2 my-4'>
-  <div class='flex flex-col bg-gradient-to-b from-slate-700 to-slate-950 rounded-lg px-4 py-4 shadow-xl'>
-    <p class="">
-      <strong class="block font-medium">Nombre:</strong>
-      <%= service.name %>
-    </p>
-    <hr/>
-    <p class="">
-      <strong class="block font-medium">Duracion:</strong>
-      <%= service.duration %>
-    </p>
-    <hr/>
-    <p class="">
-      <strong class="block font-medium">Descripcion:</strong>
-      <%= service.description %>
-    </p>
-    <hr/>
-    <p class="">
-      <strong class="block font-medium">Precio:</strong>
-      $ <%= service.price %>
-    </p>
-    <hr/>
-    <p class="">
-      <strong class="block font-medium">Comision:</strong>
-      $ <%= service.commission %>
-    </p>
+<div id="<%= dom_id service %>" class='rounded-xl bg-gray-800 shadow-xl my-4'>
+  <div class='flex flex-col bg-gradient-to-b from-gray-900 to-gray-700 rounded-lg px-6 py-6 shadow-xl'>
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-white mb-4">Detalles del Servicio</h2>
+      <hr class="border-t border-gray-600">
+    </div>
+    <div class="mb-4">
+      <p class="text-gray-300"><strong class="block font-medium text-white">Nombre:</strong> <%= service.name %></p>
+    </div>
+    <div class="mb-4">
+      <p class="text-gray-300"><strong class="block font-medium text-white">Duración:</strong> <%= service.duration %></p>
+    </div>
+    <div class="mb-4">
+      <p class="text-gray-300"><strong class="block font-medium text-white">Descripción:</strong> <%= service.description %></p>
+    </div>
+    <div class="mb-4">
+      <p class="text-gray-300"><strong class="block font-medium text-white">Precio:</strong> $ <%= service.price %></p>
+    </div>
+    <div class="mb-6">
+      <p class="text-gray-300"><strong class="block font-medium text-white">Comisión:</strong> $ <%= service.commission %></p>
+    </div>
+    <% if action_name != "show" %>
+      <div class="flex justify-end">
+        <%= link_to "Ver servicio", service, class: "btn bg-blue-600 text-white py-3 px-6 rounded-lg mr-2" %>
+        <%= link_to "Editar servicio", edit_service_path(service), class: "btn bg-blue-600 text-white py-3 px-6 rounded-lg" %>
+      </div>
+    <% end %>
   </div>
-
-  <% if action_name != "show" %>
-    <%= link_to "Ver servicio", service, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
-    <%= link_to "Editar servicio", edit_service_path(service), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 inline-block font-medium" %>
-  <% end %>
 </div>
+
