@@ -1,35 +1,39 @@
-<div id="<%= dom_id client %>" class='flex flex-col gap-4 rounded-xl bg-slate-700 shadow-xl py-4 px-4 my-4'>
-  <p class='text-center'>Cliente</p>
-  <div class='flex flex-col items-center gap-2'>
-      <%= heroicon 'user-circle', variant: :outline, options: {class: 'w-16 h-16'}%>
-    <p class='text-lg font-bold'><%= client.name %></p>
+<div id="<%= dom_id client %>" class="flex flex-col gap-4 rounded-xl bg-slate-800 shadow-lg py-4 px-4 my-4">
+  <p class="text-center text-lg font-bold text-gray-100">Cliente</p>
+
+  <div class="flex flex-col items-center gap-2">
+    <%= heroicon 'user-circle', variant: :outline, options: { class: 'w-16 h-16 text-gray-100' } %>
+    <p class="text-lg font-bold text-gray-100"><%= client.name %></p>
   </div>
 
-  <div class="rounded-xl p-4 shadow-2xl bg-gradient-to-b from-slate-600 to-slate-950 shadow-2xl">
+  <div class="rounded-xl p-4 bg-gradient-to-b from-gray-700 to-gray-900 shadow-md">
 
-    <div class='flex items-center gap-2'>
-      <span class='bg-green-800 rounded-full p-2'><%= heroicon 'phone-arrow-up-right', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%></span>
-      <p class=""><%= number_to_phone(client.phone, area_code: true) %></p>
+    <div class="flex items-center gap-2 text-gray-100">
+      <span class="bg-green-800 rounded-full p-2"><%= heroicon 'phone-arrow-up-right', variant: :outline, options: { class: 'w-4 h-4' } %></span>
+      <p><%= number_to_phone(client.phone, area_code: true) %></p>
     </div>
 
-    <hr class='my-4'/>
+    <hr class="my-4 border-gray-600"/>
 
-    <div class='flex items-center gap-2'>
-      <span class='bg-green-800 rounded-full p-2'><%= heroicon 'gift', variant: :outline, options: {class: 'w-4 h-4 text-white'}%></span>
-      <%= client.birthday.strftime("%d/%b/%Y") if client.birthday.present? %>
+    <div class="flex items-center gap-2 text-gray-100">
+      <span class="bg-green-800 rounded-full p-2"><%= heroicon 'gift', variant: :outline, options: { class: 'w-4 h-4' } %></span>
+      <p><%= client.birthday.strftime("%d/%b/%Y") if client.birthday.present? %></p>
     </div>
 
-    <hr class='my-4'/>
+    <hr class="my-4 border-gray-600"/>
 
-    <div class='flex items-center gap-2'>
-      <span class='bg-green-800 rounded-full p-2'><%= heroicon 'envelope', variant: :outline, options: {class: 'w-4 h-4 text-white'}%></span>
-      <%= client.email %>
+    <div class="flex items-center gap-2 text-gray-100">
+      <span class="bg-green-800 rounded-full p-2"><%= heroicon 'envelope', variant: :outline, options: { class: 'w-4 h-4' } %></span>
+      <p><%= client.email %></p>
     </div>
 
   </div>
 
   <% if action_name != "show" %>
-    <%= link_to "Ver cliente", client, class: "rounded-lg py-3 px-5 bg-blue-600 inline-block font-medium" %>
-    <%= link_to "Editar cliente", edit_client_path(client), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 inline-block font-medium" %>
+    <div class="flex justify-center mt-6">
+      <%= link_to "Ver cliente", client, class: "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium hover:bg-blue-700 transition duration-300" %>
+      <%= link_to "Editar cliente", edit_client_path(client), class: "rounded-lg py-3 ml-2 px-5 bg-blue-600 text-white font-medium hover:bg-blue-700 transition duration-300" %>
+    </div>
   <% end %>
 </div>
+
