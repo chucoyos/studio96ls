@@ -5,11 +5,17 @@
     </div>
 
     <div class="flex flex-col gap-2 my-4 items-center">
-      <div class="rounded-full border-2 border-blue-600 p-2">
-        <%= heroicon 'user', variant: :outline, options: { class: 'w-6 h-6 text-gray-100' } %>
-      </div>
-      <p class="font-bold"><%= meeting.client.name %></p>
-    </div>
+  <div class="rounded-full border-2 border-blue-600 p-2">
+    <%= heroicon 'user', variant: :outline, options: { class: 'w-6 h-6 text-gray-100' } %>
+  </div>
+  <p class="font-bold text-center"><%= meeting.client.name %></p>
+  <%= link_to "https://wa.me/#{meeting.client.phone}?text=#{CGI.escape("Hola, #{meeting.client.name}! Solo queríamos recordarte que tienes una cita con tu estilista, #{meeting.stylist.name}, para un #{meeting.service.name} el #{meeting.start_time.strftime("%A, %d %b %Y")} a las #{meeting.start_time.strftime("%l:%M %p")}. Estamos emocionados de verte en ese momento!")}", target: "_blank", class: 'bg-gradient-to-b from-blue-700 to-blue-950 px-4 py-2 rounded-md flex items-center justify-center shadow-md hover:bg-blue-700 text-white' do %>
+    <%= heroicon 'share', variant: :outline, options: { class: 'w-4 h-4 mr-2' } %>
+    Compartir cita
+  <% end %>
+
+</div>
+
 
     <div class="flex gap-2 items-center justify-center my-4 border rounded-xl p-2">
       <div class="rounded-full bg-red-800 p-2">
