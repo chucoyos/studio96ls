@@ -9,8 +9,6 @@
   </div>
 
   <%= week_calendar(events: @meetings) do |date, meetings| %>
-    <%= date.day %>
-
     <% meetings.each do |meeting| %>
       <div class="w-full">
         <%= link_to meeting do %>

@@ -80,3 +80,5 @@ gem "pg", "~> 1.5"
 gem "heroicon"
 
 gem "simple_calendar", "~> 3.0"
+
+gem "rails-i18n", "~> 7.0"
