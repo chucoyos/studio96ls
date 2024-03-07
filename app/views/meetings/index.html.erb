@@ -11,37 +11,34 @@
   <%= week_calendar(events: @meetings) do |date, meetings| %>
     <%= date.day %>
 
-  <% meetings.each do |meeting| %>
-    <div class='w-full'>
-        <%=link_to meeting do %>
-          <div class='flex flex-col p-2 rounded-xl my-2 bg-green-900 shadow-2xl'>
-            <div class='flex items-center gap-2 justify-center font-bold'>
-              <span>
-                <%= heroicon 'calendar', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%>
+    <% meetings.each do |meeting| %>
+      <div class="w-full">
+        <%= link_to meeting do %>
+          <div class="flex flex-col p-4 rounded-xl my-4 bg-green-900 shadow-md">
+            <div class="flex items-center mb-2">
+              <span class="mr-2">
+                <%= heroicon 'calendar', variant: :outline, options: { class: 'w-6 h-6 text-slate-100' } %>
               </span>
               <%= meeting.start_time.strftime("%l:%M %P") %> a <%= meeting.end_time.strftime("%l:%M %P") %>
             </div>
 
-            <div class='flex items-center gap-2'>
-              <span>
-                <%= heroicon 'user', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%>
+            <div class="flex items-center mb-2">
+              <span class="mr-2">
+                <%= heroicon 'user', variant: :outline, options: { class: 'w-6 h-6 text-slate-100' } %>
               </span>
               <%= meeting.client.name %>
             </div>
 
-            <div class='flex items-center gap-2'>
-              <span>
-                <%= heroicon 'sparkles', variant: :outline, options: {class: 'w-4 h-4 text-slate-100'}%>
+            <div class="flex items-center">
+              <span class="mr-2">
+                <%= heroicon 'sparkles', variant: :outline, options: { class: 'w-6 h-6 text-slate-100' } %>
               </span>
               <%= meeting.service.name %>
             </div>
           </div>
-
         <% end %>
-    </div>
+      </div>
     <% end %>
   <% end %>
-
-  
-  
 </div>
+ 
