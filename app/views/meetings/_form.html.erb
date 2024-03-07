@@ -1,37 +1,37 @@
 <%= form_with(model: meeting, class: "contents") do |form| %>
   <% if meeting.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(meeting.errors.count, "error") %> impiden guardar la cita:</h2>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-4 py-3 font-medium rounded-lg my-4">
+      <h2 class="text-lg mb-2"><%= pluralize(meeting.errors.count, "error") %> impiden guardar la cita:</h2>
 
-      <ul>
-        <% meeting.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+      <ul class="list-disc ml-5">
+        <% meeting.errors.full_messages.each do |error_message| %>
+          <li><%= error_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="my-5 border rounded-lg p-4">
-    <%= form.label 'Inicia', class: 'text-slate-100' %>
-    <%= form.datetime_field :start_time, class: "block rounded-lg outline-none px-3 py-2 mt-2 w-full bg-slate-500" %>
+    <%= form.label 'Inicia', class: 'text-slate-100 font-medium mb-2 block' %>
+    <%= form.datetime_field :start_time, class: "block rounded-lg outline-none px-3 py-2 w-full bg-slate-500 text-slate-100" %>
   </div>
 
   <div class="my-5 border rounded-lg p-4">
-    <%= form.label 'Servicio', class: 'text-slate-100' %>
-    <%= form.select :service_id, Service.all.collect { |service| [service.name, service.id] }, {}, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
+    <%= form.label 'Servicio', class: 'text-slate-100 font-medium mb-2 block' %>
+    <%= form.collection_select :service_id, Service.all, :id, :name, { prompt: "Selecciona un servicio" }, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
   </div>
 
   <div class="my-5 border rounded-lg p-4">
-    <%= form.label 'Cliente', class: 'text-slate-100' %>
-    <%= form.select :client_id, Client.all.collect { |client| [client.name, client.id] }, {}, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
+    <%= form.label 'Cliente', class: 'text-slate-100 font-medium mb-2 block' %>
+    <%= form.collection_select :client_id, Client.all, :id, :name, { prompt: "Selecciona un cliente" }, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
   </div>
 
   <div class="my-5 border rounded-lg p-4">
-    <%= form.label 'Estilista', class: 'text-slate-100' %>
-    <%= form.select :stylist_id, Stylist.all.collect { |stylist| [stylist.name, stylist.id] }, {}, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
+    <%= form.label 'Estilista', class: 'text-slate-100 font-medium mb-2 block' %>
+    <%= form.collection_select :stylist_id, Stylist.all, :id, :name, { prompt: "Selecciona un estilista" }, { class: 'rounded-lg w-full bg-slate-900 text-slate-100' } %>
   </div>
 
-  <div class="inline">
-    <%= form.submit 'Enviar', class: "rounded-lg py-3 px-5 bg-gradient-to-b from-green-700 to-green-950 text-white inline-block font-medium cursor-pointer" %>
+  <div class="mt-6">
+    <%= form.submit 'Enviar', class: "rounded-lg py-3 px-6 bg-gradient-to-b from-green-700 to-green-950 text-white font-medium cursor-pointer shadow-md hover:shadow-lg transition duration-300" %>
   </div>
 <% end %>
